@@ -21,34 +21,31 @@ Les types de données de l'application :
 5. RDV 
 
 Pour créer les deux entités : ```bin/console make:entity```  
-Commencer par Category puis Todo.  
-La relation se fera à partir de l'entité Todo, avec une propriété _category_id_ qui sera du type __relation__.
+
 
 ### Migration
 1. Création du fichier de migration (code SQL) ```bin/console make:migration```
 2. Executer la migration ```bin/console doctrine:migrations:migrate```  
---> créé les tables Todo et Category dans MySQL  
-## Git Commit
-1. git add .
-2. git commit -m "Todo application install et config DB"
+--> créé les tables dans MySQL  (vérification dans phpMyAdmin)
+## Make CRUD
+Pour créer automatiquement le crud (Create Update Delete) sur les entités créées :
+1. ```bin/console make:crud```
+2. préciser le nom de l'entité sur laquelle créer le crud.
 
-# Fixtures
-Tester insertion de données dans les tables.  
-1. Installer d'abord : ```composer require orm-fixtures --dev```
-2. Coder dans AppFixtures
-3. ```bin/console doctrine:fixtures:load```
+## Premier test d'execution
+pour utiliser la commande server:run sur symfony 4.4 :   
+1. ```composer require --dev symfony/web-server-bundle```  
+2. ```bin/console server:run```  
+3. vérifier dans le controller les routes à utiliser.
+
+
 
 # Controllers
 Dans notre cas, nous utilisons un seul controller
 ```bin/console make:controller````
 Symfony a créé un controller ```Maincontroller``` et une vue : ```main/index.html.twig```
 
-## Premier test d'execution
-```bin/console server:run```  
-OUPS !! La version 4.4 a déprécié cette commande...  
-On fair donc un tour sur internet avec les mots clés ```Symfony 4.4 server:run```  
-Une proposition dans la doc :   
-```composer require --dev symfony/web-server-bundle```
+
  
  ## Notre première requête avec Doctrine
  Doctrine et Repository
