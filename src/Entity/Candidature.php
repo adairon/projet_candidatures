@@ -39,7 +39,7 @@ class Candidature
     private $Localisation;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $Date_envoi;
 
@@ -59,7 +59,7 @@ class Candidature
     private $Statut;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $Mise_a_jour;
 
