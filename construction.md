@@ -41,9 +41,9 @@ pour utiliser la commande server:run sur symfony 4.4 :
 
 
 # Controllers
-Dans notre cas, nous utilisons un seul controller
-```bin/console make:controller````
-Symfony a créé un controller ```Maincontroller``` et une vue : ```main/index.html.twig```
+Dans notre cas, le controller et la vue ont été créés automatiquement.  
+Penser à modifier la route pour la page d'accueil :   
+```@Route("/candidature")```devient : ```@Route("/")```
 
 
  

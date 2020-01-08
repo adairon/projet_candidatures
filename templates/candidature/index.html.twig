@@ -1,43 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Candidature{% endblock %}
+{% block title %} {{ parent ()}} Candidature{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Liste de mes Candidature</h1>
+<div class="container mt-5 main-container">
+    <h1 class="text-center my-5">Liste de mes Candidatures</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Poste</th>
                 <th>Entreprise</th>
                 <th>Contrat</th>
                 <th>Localisation</th>
-                <th>Date_envoi</th>
+                <th>Date d'envoi</th>
                 <th>Lien</th>
                 <th>Plateforme</th>
                 <th>Statut</th>
-                <th>Mise à jour</th>
+                <th>Mise à jour le</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for candidature in candidatures %}
             <tr>
-                <td>{{ candidature.id }}</td>
                 <td>{{ candidature.Poste }}</td>
                 <td>{{ candidature.Entreprise }}</td>
                 <td>{{ candidature.Contrat }}</td>
                 <td>{{ candidature.Localisation }}</td>
-                <td>{{ candidature.DateEnvoi ? candidature.DateEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}</td>
                 <td>{{ candidature.Lien }}</td>
                 <td>{{ candidature.Plateforme }}</td>
                 <td>{{ candidature.Statut }}</td>
-                <td>{{ candidature.MiseAJour ? candidature.MiseAJour|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('candidature_show', {'id': candidature.id}) }}">show</a>
-                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}">edit</a>
+                    <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="btn btn-info">voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="btn btn-warning">éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -48,6 +48,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('candidature_new') }}" class="btn btn-primary">Create new</a>
+    <a href="{{ path('candidature_new') }}" class="btn btn-primary">Nouvelle candidature</a>
 </div>
 {% endblock %}

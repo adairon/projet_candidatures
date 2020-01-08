@@ -71,6 +71,9 @@ class Candidature
     public function __construct()
     {
         $this->Rdv = new ArrayCollection();
+        $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->setDateEnvoi($now);
+        $this->setMiseAJour($now);
     }
 
     public function getId(): ?int
