@@ -1,11 +1,4 @@
-body{
-    background-color: rgb(241, 241, 241);
-    background-image: url(/images/business-team-meeting-boardroom.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
+/*  ========================= [ Règles générales ]====================================== */
 h1{
     background-color: rgba(0, 0, 0, 0.74);
     color: white;
@@ -18,10 +11,35 @@ h1{
 .main-container{
     background-color: rgba(255, 255, 255, 0);
     border-radius: 20px;
-    
 }
 
+form{
+    margin: auto;
+    text-align: center;
+}
+/*  ===================== [ Landing page : liste des candidatures] ============================ */
+.block-body{
+    margin-top: 0;
+    background-color: rgb(241, 241, 241);
+    background-image: url(/images/business-team-meeting-boardroom.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Cartes */
 .card{
     margin: 20px;
     border-radius: 20px;
+    overflow: hidden;
 }
+.card-header{
+    background-color: rgb(173, 173, 173);
+}
+
+.new-candidature{
+    margin: 10px;
+    padding: 10px;
+}
+
+/* ======================== [ Création nouvelle candidature ] ======================== */
