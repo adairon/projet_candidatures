@@ -4,9 +4,42 @@
 
 {% block body %}
 <div class="container mt-5 main-container">
-    <h1 class="text-center my-5">Liste de mes Candidatures</h1>
 
-    <table class="table table-striped">
+    <a href="{{ path('candidature_new') }}" class="btn btn-primary">Nouvelle candidature</a>
+
+    <h1 class="text-center my-5">Liste de mes Candidatures</h1>
+    
+    {% for candidature in candidatures %}
+
+        <div class="card text-center">
+            <div class="card-header">
+                Statut : {{ candidature.Statut }} <br> <hr>
+                Candidature le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ candidature.Contrat }} - {{ candidature.Poste }} - {{ candidature.Entreprise }} ({{ candidature.Localisation }})
+                </h5>
+                <p class="card-text">
+                    Plateforme d'envoi : {{ candidature.Plateforme }}
+                </p>
+                <h5>Actions :</h5>
+                <p class="card-text">
+                    <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="btn btn-info">voir</a>
+                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="btn btn-warning">éditer</a>
+                </p>
+            </div>
+            <div class="card-footer text-muted">
+                Mise à jour le : {{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}
+            </div>
+        </div>
+        
+    {% else %}
+        <tr>
+            <td colspan="11">Aucune candidature trouvée</td>
+        </tr>
+    {% endfor %}
+{#  <table class="table table-striped">
         <thead>
             <tr>
                 <th>Poste</th>
@@ -42,11 +75,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Aucune candidature trouvée</td>
             </tr>
-        {% endfor %}
+        {% endfor %} 
         </tbody>
     </table>
+#}
 
     <a href="{{ path('candidature_new') }}" class="btn btn-primary">Nouvelle candidature</a>
 </div>

@@ -1,10 +1,27 @@
 body{
     background-color: rgb(241, 241, 241);
+    background-image: url(/images/business-team-meeting-boardroom.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 h1{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.74);
     color: white;
     padding: 1rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.main-container{
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    
+}
+
+.card{
+    margin: 20px;
     border-radius: 20px;
 }
