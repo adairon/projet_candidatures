@@ -6,40 +6,44 @@
 <div class="block-body">
 <div class="container main-container">
 
-    <a href="{{ path('candidature_new') }}" class="btn btn-primary new-candidature">Nouvelle candidature</a>
-
     <h1 class="text-center my-5">Liste de mes Candidatures</h1>
-    
-    {% for candidature in candidatures %}
+    {# présentation sous forme de cartes dans un card-deck bootstrap avant la boucle pour que toutes les cartes y soient #}
+    <div class="card-deck">
+        {% for candidature in candidatures %}
 
-        <div class="card text-center">
-            <div class="card-header">
-                Statut : {{ candidature.Statut }} <br> <hr>
-                envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
+            <div class="card text-center col-lg-4 col-md-9 col-sm-12">
+                <div class="card-header">
+                    Statut : {{ candidature.Statut }} <br> <hr>
+                    envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ candidature.Contrat }} <br>
+                        {{ candidature.Poste }} <br>
+                        {{ candidature.Entreprise }} <br>
+                        {# ({{ candidature.Localisation }}) #}
+                    </h5>
+                    {# <p class="card-text">
+                        Plateforme d'envoi : {{ candidature.Plateforme }}
+                    </p>
+                    <h5>Actions :</h5> #}
+                    <p class="card-text">
+                        <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="btn btn-info">voir</a>
+                        <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="btn btn-warning">éditer</a>
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    Mise à jour le : {{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">
-                    {{ candidature.Contrat }} - {{ candidature.Poste }} - {{ candidature.Entreprise }} ({{ candidature.Localisation }})
-                </h5>
-                <p class="card-text">
-                    Plateforme d'envoi : {{ candidature.Plateforme }}
-                </p>
-                <h5>Actions :</h5>
-                <p class="card-text">
-                    <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="btn btn-info">voir</a>
-                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="btn btn-warning">éditer</a>
-                </p>
-            </div>
-            <div class="card-footer text-muted">
-                Mise à jour le : {{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}
-            </div>
-        </div>
-        
-    {% else %}
-        <tr>
-            <td colspan="11">Aucune candidature trouvée</td>
-        </tr>
-    {% endfor %}
+            
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune candidature trouvée</td>
+            </tr>
+        {% endfor %}
+    </div>
+
 {#  Présentation par défaut : sous forme de tableau  
 
     <table class="table table-striped">
@@ -85,7 +89,6 @@
     </table>
 #}
 
-    <a href="{{ path('candidature_new') }}" class="btn btn-primary">Nouvelle candidature</a>
 </div>
 </div>
 {% endblock %}

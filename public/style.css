@@ -1,4 +1,11 @@
 /*  ========================= [ Règles générales ]====================================== */
+body{
+    background-image: url(/images/pattern.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+}
+
 h1{
     background-color: rgba(0, 0, 0, 0.74);
     color: white;
@@ -26,9 +33,16 @@ form{
     text-decoration: none;
     color:white;
 }
+
+/* ===========================================[ NAVBAR ]===================================== */
+.navbar{
+    height: 7rem;
+    box-shadow: 5px 0px 5px black;
+}
+
 /*  ===================== [ Landing page : liste des candidatures] ============================ */
 .block-body{
-    margin-top: 0;
+    margin-top: ;
     /* background-color: rgb(241, 241, 241); */
     background-image: url(/images/business-team-meeting-boardroom.jpg);
     background-size: cover;
@@ -36,11 +50,17 @@ form{
     background-repeat: no-repeat;
 }
 
+.main-container{
+    margin-top:7rem;
+}
+
+
 /* Cartes */
 .card{
-    margin: 20px;
     border-radius: 20px;
     overflow: hidden;
+    padding:0;
+    box-shadow: 0px 0px 5px black;
 }
 .card-header{
     background-color: rgb(173, 173, 173);
