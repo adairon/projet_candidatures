@@ -15,7 +15,25 @@ class CandidatureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //Condition avant le builder : 
+        //en mode création (pas d'Id): on a une date de création, 
+        //en mode édition (on a un Id), une date de mise à jour :
+        if($options['data']->getId()==null) {
+            $builder->add('Date_envoi',DateType::class,[
+                'years' => ['2020','2021'],
+                'format' => 'dd MM yyyy',
+                'data' => new \DateTime('now', new \DateTimeZone('Europe/Paris'))
+                ]);
+        } else {
+            $builder->add('Mise_a_jour',DateType::class,[
+                'years' => ['2020','2021'],
+                'format' => 'dd MM yyyy',
+                'data' => new \DateTime('now', new \DateTimeZone('Europe/Paris'))
+            ]);
+        }
+
         $builder
+
             ->add('Poste', TextType::class,[
                 'attr' => [
                     'placeholder' => 'Candidature pour quel poste ?'
@@ -36,7 +54,7 @@ class CandidatureType extends AbstractType
                     'placeholder' => 'Dans quelle ville ?'
                 ]
             ])
-            ->add('Date_envoi')
+
             ->add('Lien', TextType::class,[
                 'attr' => [
                     'placeholder' => "Lien vers l'annonce"
@@ -49,9 +67,6 @@ class CandidatureType extends AbstractType
             ])
             ->add('Statut')
 
-            ->add('Mise_a_jour',DateType::class,[
-                'data' => new \DateTime('now', new \DateTimeZone('Europe/Paris'))
-            ])
         ;
     }
 

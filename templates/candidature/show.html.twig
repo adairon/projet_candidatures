@@ -4,8 +4,36 @@
 
 {% block body %}
     <h1>Candidature</h1>
+    <div class="card text-center">
+            <div class="card-header">
+                Statut : {{ candidature.Statut }} <br> <hr>
+                envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ candidature.Contrat }} - {{ candidature.Poste }} - {{ candidature.Entreprise }} ({{ candidature.Localisation }})
+                </h5>
+                <p class="card-text">
+                    Plateforme d'envoi : <br>
+                    {{ candidature.Plateforme }}
+                </p>
+                <p class="card-text">
+                    Lien vers l'annonce : <br>
+                    <a href="{{ candidature.Lien }}">{{ candidature.Lien }}</a>
+                </p>
+                
+                <h5>Actions :</h5>
+                <p class="card-text">
+                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="btn btn-warning">éditer</a>
+                    {{ include('candidature/_delete_form.html.twig') }}
+                </p>
+            </div>
+            <div class="card-footer text-muted">
+                Mise à jour le : {{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}
+            </div>
+        </div>
 
-    <table class="table">
+    {# <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -48,11 +76,13 @@
                 <td>{{ candidature.MiseAJour ? candidature.MiseAJour|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> #}
+    <button type="button" class="btn btn-secondary">
+        <a href="{{ path('candidature_index') }}">Retour à la liste</a>
+    </button>
 
-    <a href="{{ path('candidature_index') }}">back to list</a>
+    {# <a href="{{ path('candidature_edit', {'id': candidature.id}) }}">edit</a>
 
-    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}">edit</a>
-
-    {{ include('candidature/_delete_form.html.twig') }}
+    {{ include('candidature/_delete_form.html.twig') }} #}
+    
 {% endblock %}
