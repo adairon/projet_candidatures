@@ -13,18 +13,33 @@
     </div>
 
     <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Catégories
-        </a>
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          FILTRE PAR STATUT
+      </a>
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes</a>
           {# {% for cat in menu_categories %}
             <a class="dropdown-item" href="{{ path('todo_category', {'id':cat.id}) }}">{{ cat.name }}</a>
           {% endfor %} #}
-        </div>
-
+      </div>
     </div>
+
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          TRI PAR DATES
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes</a>
+          {# {% for cat in menu_categories %}
+            <a class="dropdown-item" href="{{ path('todo_category', {'id':cat.id}) }}">{{ cat.name }}</a>
+          {% endfor %} #}
+      </div>
+    </div>
+  
+    
+
   </div>
-<a href="{{ path('candidature_new') }}" class="btn btn-primary new-candidature">Nouvelle candidature</a>
+<a href="" class="btn btn-secondary">Connexion</a>
 </nav>

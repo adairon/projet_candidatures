@@ -1,0 +1,105 @@
+/*  ========================= [ Règles générales ]====================================== */
+body{
+    /* background-image: url(/images/OQCI8I0.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat; */
+    background-color: rgb(231, 231, 231);
+    margin-top: 3rem; /*pour compenser la taille de la navbar*/
+    
+}
+
+header{
+    height: 200px;
+    background-image: url(../images/business-team-meeting-boardroom.jpg);
+    background-size: cover;
+    background-position: 0% 70%;
+}
+
+h1{
+    /* background-color: rgba(0, 0, 0, 0.74);
+    color: white; */
+    /* padding: 1rem; */
+    /* border: 2px solid white; */
+    /* border-radius: 5px;
+    box-shadow: 0px 5px 5px black; */
+}
+
+
+form{
+    text-align: center;
+}
+
+.btn{
+    margin:1rem;
+}
+
+.btn a{
+    text-decoration: none;
+    color:white;
+}
+
+
+
+/* ===========================================[ NAVBAR ]===================================== */
+.navbar{
+    box-shadow: 5px 0px 5px black;
+}
+
+/* ==========================================[ SIDEBAR ]====================================== */
+.sidebar{
+    position: fixed;
+    top: 0;left: 0;bottom: 0;
+    height: 100vh;
+    width: 150px; 
+    margin-top: 86px; /*on décalle vers le bas de la hauteur de la navbar*/
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+/*  ===================== [ Landing page : liste des candidatures] ============================ */
+.block-body{
+    padding: 1rem 0 ;
+    margin-left: 150px;
+    /* background-color: rgb(241, 241, 241); */
+    /* background-image: url(/images/business-team-meeting-boardroom.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; */
+}
+
+
+/* Cartes */
+.card{
+    border-radius: 5px;
+    overflow: hidden;
+    padding:0;
+    box-shadow: 0px 0px 5px black;
+    margin: 20px auto;
+}
+.card-header{
+    background-color: rgb(173, 173, 173);
+}
+
+.new-candidature{
+    margin: 10px;
+    padding: 10px;
+}
+
+/* ======================== [ Création nouvelle candidature ] ======================== */
+
+.form-row{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    /* border: 1px solid black; */
+    padding: 1rem 0;
+}
+
+#candidature{
+    
+}
+
+/*  ===========================[ Voir la candidature ]==================================== */

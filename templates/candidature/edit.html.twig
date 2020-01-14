@@ -3,17 +3,18 @@
 {% block title %}Edit Candidature{% endblock %}
 
 {% block body %}
-    <div class="block-body-edit">
+    <div class="block-body">
         <div class="container edit-container">
-            <h1>Editer la Candidature</h1>
-
-            {{ include('candidature/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            <div class="col-9 justify-content-center m-auto">
+                <h1 class="text-center my-1">Editer la Candidature</h1>
+                
+                {{ include('candidature/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                {{ include('candidature/_delete_form.html.twig') }}
+            </div>
 
             <button type="button" class="btn btn-secondary">
                 <a href="{{ path('candidature_index') }}">Retour à la liste</a>
             </button>
-
-            {{ include('candidature/_delete_form.html.twig') }}
         </div>
     </div>
 {% endblock %}

@@ -6,12 +6,12 @@
 <div class="block-body">
 <div class="container main-container">
 
-    <h1 class="text-center my-5">Liste de mes Candidatures</h1>
+    <h1 class="text-center my-1">Liste de mes Candidatures</h1>
     {# présentation sous forme de cartes dans un card-deck bootstrap avant la boucle pour que toutes les cartes y soient #}
-    <div class="card-deck">
+    {# <div class="card-deck"> #}
         {% for candidature in candidatures %}
 
-            <div class="card text-center col-lg-4 col-md-9 col-sm-12">
+            <div class="card text-center col-12">
                 <div class="card-header">
                     Statut : {{ candidature.Statut }} <br> <hr>
                     envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
@@ -42,7 +42,7 @@
                 <td colspan="11">Aucune candidature trouvée</td>
             </tr>
         {% endfor %}
-    </div>
+    {# </div> #}
 
 {#  Présentation par défaut : sous forme de tableau  
 

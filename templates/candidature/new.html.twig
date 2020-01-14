@@ -3,10 +3,10 @@
 {% block title %}Nouvelle Candidature{% endblock %}
 
 {% block body %}
-<div class="block-body-new">
+<div class="block-body">
     <div class="container new-container">
-        <div class="col-12">
-            <h1 class="text-center">Créer une nouvelle Candidature</h1>
+        <div class="col-9 justify-content-center m-auto">
+            <h1 class="text-center my-1">Créer une nouvelle Candidature</h1>
             {{ include('candidature/_form.html.twig') }}
             <button type="button" class="btn btn-secondary">
                 <a href="{{ path('candidature_index') }}">Retour à la liste</a>
