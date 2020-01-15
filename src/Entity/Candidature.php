@@ -68,6 +68,12 @@ class Candidature
      */
     private $Rdv;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Statut", inversedBy="candidatures")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Statut_candidature;
+
     public function __construct()
     {
         $this->Rdv = new ArrayCollection();
@@ -216,6 +222,18 @@ class Candidature
                 $rdv->setCandidature(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatutCandidature(): ?Statut
+    {
+        return $this->Statut_candidature;
+    }
+
+    public function setStatutCandidature(?Statut $Statut_candidature): self
+    {
+        $this->Statut_candidature = $Statut_candidature;
 
         return $this;
     }
