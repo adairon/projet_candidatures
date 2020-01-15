@@ -4,7 +4,7 @@ body{
     background-size: cover;
     background-position: center center;
     background-repeat: repeat; */
-    background-color: rgb(231, 231, 231);
+    /* background-color: rgb(245, 245, 245); */
     margin-top: 3rem; /*pour compenser la taille de la navbar*/
     
 }
@@ -52,11 +52,13 @@ form{
     top: 0;left: 0;bottom: 0;
     height: 100vh;
     width: 150px; 
-    margin-top: 86px; /*on décalle vers le bas de la hauteur de la navbar*/
-    background-color: #fff;
+    margin-top: 286px; /*on décalle vers le bas de la hauteur de la navbar et du header*/
     display: flex;
     flex-direction: column;
     align-content: center;
+    /* background-color: #fff; */
+    /* box-shadow: 0px 5px 5px black; */
+
 }
 
 /*  ===================== [ Landing page : liste des candidatures] ============================ */
