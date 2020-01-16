@@ -54,11 +54,6 @@ class Candidature
     private $Plateforme;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Statut;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $Mise_a_jour;
@@ -67,6 +62,11 @@ class Candidature
      * @ORM\OneToMany(targetEntity="App\Entity\Rdv", mappedBy="candidature")
      */
     private $Rdv;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etape", inversedBy="candidatures")
+     */
+    private $etape;
 
 
     public function __construct()
@@ -166,18 +166,6 @@ class Candidature
         return $this;
     }
 
-    public function getStatut(): ?string
-    {
-        return $this->Statut;
-    }
-
-    public function setStatut(string $Statut): self
-    {
-        $this->Statut = $Statut;
-
-        return $this;
-    }
-
     public function getMiseAJour(): ?\DateTimeInterface
     {
         return $this->Mise_a_jour;
@@ -217,6 +205,18 @@ class Candidature
                 $rdv->setCandidature(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEtape(): ?Etape
+    {
+        return $this->etape;
+    }
+
+    public function setEtape(?Etape $etape): self
+    {
+        $this->etape = $etape;
 
         return $this;
     }

@@ -15,10 +15,10 @@
         <div class="container show-candidature">
         
 
-            <div class="card text-center">
+            <div class="card text-center col-9">
 
                 <div class="card-header">
-                    Statut : {{ candidature.Statut }} <br> <hr>
+                    Étape : {{ candidature.etape.etape }} <br> <hr>
                     envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
                 </div>
 

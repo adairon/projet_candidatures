@@ -14,29 +14,17 @@
 
     <div class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          FILTRE PAR STATUT
+          Filtrer par étape
       </a>
 
       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes</a>
-          {# {% for cat in menu_categories %}
-            <a class="dropdown-item" href="{{ path('todo_category', {'id':cat.id}) }}">{{ cat.name }}</a>
-          {% endfor %} #}
+          {% for etapes in menu_etapes %}
+            <a class="dropdown-item" href="{{ path('candidature_etape', {'id':etapes.id}) }}">{{ etapes.etape }}</a>
+          {% endfor %}
       </div>
     </div>
 
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          TRI PAR DATES
-      </a>
-
-      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes</a>
-          {# {% for cat in menu_categories %}
-            <a class="dropdown-item" href="{{ path('todo_category', {'id':cat.id}) }}">{{ cat.name }}</a>
-          {% endfor %} #}
-      </div>
-    </div>
     <a href="{{ path('candidature_new') }}" class="btn btn-primary new-candidature">Nouvelle candidature</a>
 
   

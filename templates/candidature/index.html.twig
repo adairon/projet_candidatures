@@ -19,9 +19,9 @@
     {# <div class="card-deck"> #}
         {% for candidature in candidatures %}
 
-            <div class="card text-center col-12">
+            <div class="card text-center col-9">
                 <div class="card-header">
-                    {{ candidature.Statut }} {# <br> <hr> #}
+                    {{ candidature.etape.etape }} {# <br> <hr> #}
                     {# envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }} #}
                 </div>
                 <div class="card-body">

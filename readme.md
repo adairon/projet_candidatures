@@ -20,7 +20,12 @@ Les types de données de l'application :
 4. Contact
 5. RDV 
 
-Pour créer les entités : ```bin/console make:entity```  
+Pour créer les entités : ```bin/console make:entity``` 
+
+## Fixtures
+- on utilise les fixtures pour créer des données dans la table Etape.
+```composer require --dev orm-fixtures```
+- on charge les données créées dans les fixtures : ```bin/console doctrine:fixtures:load```
 
 
 ### Migration
@@ -57,3 +62,7 @@ On harmonise les différentes vues avec la mise en page de l'index :
 
 ### Gestion de la date de la candidature
 Selon si nous crééons une candidature ou si nous éditons, la date du jour concernera la date de création pu celle de mise à jour.
+
+## Design :
+### Header
+On choisit de dupliquer le header sur chaque page du Crud afin de pouvoir le personnaliser : le titre de chaque page est maintenant dans le header.

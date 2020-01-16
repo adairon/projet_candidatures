@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Candidature;
 use App\Form\CandidatureType;
 use App\Repository\CandidatureRepository;
+use App\Repository\EtapeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,14 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CandidatureController extends AbstractController
 {
+    private $menu_etapes;
+
+    function __construct (EtapeRepository $repo)
+    {
+        $this->menu_etapes = $repo->findAll();
+    }
+
+
     /**
      * @Route("/", name="candidature_index", methods={"GET"})
      */
@@ -90,5 +99,17 @@ class CandidatureController extends AbstractController
         }
 
         return $this->redirectToRoute('candidature_index');
+    }
+
+    /**
+     * @Route("/candidatures/{id}", name="candidature_etape")
+     */
+    public function candidatureByEtape($id, EtapeRepository $repo){
+        $etape = $repo->find($id);
+        $candidatures = $etape->getCandidatures();
+        return $this->render('candidature/index.html.twig', [
+            'candidatures' => $candidatures,
+            'menu_etapes' => $this->menu_etapes
+        ]);
     }
 }
