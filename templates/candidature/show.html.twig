@@ -3,10 +3,17 @@
 {% block title %}{{ parent ()}} - détails candidature {% endblock %}
 
 {% block body %}
+
+    <header>
+        <div class="header-text">
+            <h1>Les détails de votre candidature</h1>
+            <h3> au poste de {{ candidature.Poste }} chez {{ candidature.Entreprise }}</h3>
+        </div>
+    </header>
+
     <div class="block-body">
         <div class="container show-candidature">
         
-            <h1 class="text-center my-1">Détails Candidature</h1>
 
             <div class="card text-center">
 

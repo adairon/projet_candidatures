@@ -3,10 +3,18 @@
 {% block title %} {{ parent ()}} - Accueil{% endblock %}
 
 {% block body %}
+
+<header>
+    <div class="header-text">
+        <h1>Mes Candidatures</h1>
+        <h3>Retrouvez toutes vos candidatures en 1 seul clic !</h3>
+    </div>
+</header>
+
 <div class="block-body">
 <div class="container main-container">
 
-    <h1 class="text-center my-1">Liste de mes Candidatures</h1>
+    
     {# présentation sous forme de cartes dans un card-deck bootstrap avant la boucle pour que toutes les cartes y soient #}
     {# <div class="card-deck"> #}
         {% for candidature in candidatures %}
