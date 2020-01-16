@@ -31,6 +31,7 @@ class CandidatureController extends AbstractController
     {
         return $this->render('candidature/index.html.twig', [
             'candidatures' => $candidatureRepository->findAll(),
+            'menu_etapes' => $this->menu_etapes
         ]);
     }
 
@@ -54,6 +55,7 @@ class CandidatureController extends AbstractController
         return $this->render('candidature/new.html.twig', [
             'candidature' => $candidature,
             'form' => $form->createView(),
+            'menu_etapes' => $this->menu_etapes
         ]);
     }
 
@@ -64,6 +66,7 @@ class CandidatureController extends AbstractController
     {
         return $this->render('candidature/show.html.twig', [
             'candidature' => $candidature,
+            'menu_etapes' => $this->menu_etapes
         ]);
     }
 
@@ -84,6 +87,7 @@ class CandidatureController extends AbstractController
         return $this->render('candidature/edit.html.twig', [
             'candidature' => $candidature,
             'form' => $form->createView(),
+            'menu_etapes' => $this->menu_etapes
         ]);
     }
 
