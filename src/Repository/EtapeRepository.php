@@ -47,4 +47,13 @@ class EtapeRepository extends ServiceEntityRepository
         ;
     }
     */
+        // //Fonction comptant le nombre de candidatures par étape :
+        // public function countByEtapes()
+        // {
+        //     $candidatures = $this->findBygetCandidatures('candidatures');
+        //     $qb = $this->createQueryBuilder($candidatures);
+        //     $qb ->select($qb->expr()->count($candidatures));
+        //     return (int) $qb->getQuery()->getSingleScalarResult();
+        // }
+
 }

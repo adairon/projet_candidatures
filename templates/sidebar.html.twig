@@ -1,9 +1,24 @@
-<div class="sidebar">
+<div class="sidebar bg-dark">
+    
     <a href="{{ path('candidature_new') }}" class="btn btn-primary new-candidature">Nouvelle candidature</a>
-    <h3>Menu SIDEBAR</h3>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
+    
+    
+    <div class="nav-item dropdown">
+
+      <a class="nav-link dropdown-toggle btn btn-secondary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filtrer par étape
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        
+        <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes ({{ nbCandidatures }})</a>
+
+          {% for etapes in menu_etapes %}
+            <a class="dropdown-item" href="{{ path('candidature_etape', {'id':etapes.id}) }}">{{ etapes.etape }}  </a>
+          {% endfor %}
+
+      </div>
+
+    </div>
+
 </div>

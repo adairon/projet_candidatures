@@ -21,7 +21,9 @@ class CandidatureController extends AbstractController
     function __construct (EtapeRepository $repo)
     {
         $this->menu_etapes = $repo->findAll();
+        // $this->candParEtape = $repo->countByEtapes();
     }
+
 
 
     /**
@@ -31,14 +33,17 @@ class CandidatureController extends AbstractController
     {
         return $this->render('candidature/index.html.twig', [
             'candidatures' => $candidatureRepository->findAll(),
-            'menu_etapes' => $this->menu_etapes
+            // dump($this->menu_etapes),
+            'menu_etapes' => $this->menu_etapes,
+            'nbCandidatures'=>$candidatureRepository->countCandidatures(),
+            // 'candParEtape' => $this->candParEtape
         ]);
     }
 
     /**
      * @Route("/new", name="candidature_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,CandidatureRepository $candidatureRepository): Response
     {
         $candidature = new Candidature();
         $form = $this->createForm(CandidatureType::class, $candidature);
@@ -55,25 +60,27 @@ class CandidatureController extends AbstractController
         return $this->render('candidature/new.html.twig', [
             'candidature' => $candidature,
             'form' => $form->createView(),
-            'menu_etapes' => $this->menu_etapes
+            'menu_etapes' => $this->menu_etapes,
+            'nbCandidatures'=>$candidatureRepository->countCandidatures()
         ]);
     }
 
     /**
      * @Route("/{id}", name="candidature_show", methods={"GET"})
      */
-    public function show(Candidature $candidature): Response
+    public function show(Candidature $candidature,CandidatureRepository $candidatureRepository): Response
     {
         return $this->render('candidature/show.html.twig', [
             'candidature' => $candidature,
-            'menu_etapes' => $this->menu_etapes
+            'menu_etapes' => $this->menu_etapes,
+            'nbCandidatures'=>$candidatureRepository->countCandidatures()
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="candidature_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Candidature $candidature): Response
+    public function edit(Request $request, Candidature $candidature, CandidatureRepository $candidatureRepository): Response
     {
         $form = $this->createForm(CandidatureType::class, $candidature);
         $form->handleRequest($request);
@@ -87,7 +94,8 @@ class CandidatureController extends AbstractController
         return $this->render('candidature/edit.html.twig', [
             'candidature' => $candidature,
             'form' => $form->createView(),
-            'menu_etapes' => $this->menu_etapes
+            'menu_etapes' => $this->menu_etapes,
+            'nbCandidatures'=>$candidatureRepository->countCandidatures()
         ]);
     }
 
@@ -108,12 +116,16 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/candidatures/{id}", name="candidature_etape")
      */
-    public function candidatureByEtape($id, EtapeRepository $repo){
+    public function candidatureByEtape($id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
         $etape = $repo->find($id);
         $candidatures = $etape->getCandidatures();
         return $this->render('candidature/index.html.twig', [
             'candidatures' => $candidatures,
-            'menu_etapes' => $this->menu_etapes
+            dump($candidatures),
+            'menu_etapes' => $this->menu_etapes,
+            'nbCandidatures'=>$candidatureRepository->countCandidatures(),
+            // 'candParEtape' => $this->candParEtape
+
         ]);
     }
 }

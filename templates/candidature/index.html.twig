@@ -7,7 +7,7 @@
 <header>
     <div class="header-text">
         <h1>Mes Candidatures</h1>
-        <h3>Retrouvez toutes vos candidatures en 1 seul clic !</h3>
+        <h>Retrouvez toutes vos candidatures en 1 seul clic !</h>
     </div>
 </header>
 
@@ -15,8 +15,7 @@
 <div class="container main-container">
 
     
-    {# présentation sous forme de cartes dans un card-deck bootstrap avant la boucle pour que toutes les cartes y soient #}
-    {# <div class="card-deck"> #}
+    {# présentation sous forme de cartes #}
         {% for candidature in candidatures %}
 
             <div class="card text-center col-9">
@@ -52,7 +51,6 @@
                 <td colspan="11">Aucune candidature trouvée</td>
             </tr>
         {% endfor %}
-    {# </div> #}
 
 {#  Présentation par défaut : sous forme de tableau  
 

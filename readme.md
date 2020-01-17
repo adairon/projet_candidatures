@@ -51,9 +51,15 @@ Penser à modifier la route pour la page d'accueil :
 
 ## personnalisation de l'interface
 ### Vue index :
-On laisse en commentaire la vue par défaut (sous forme de table) pour céer une interface sous forme de cartes bootstrap
+On laisse en commentaire la vue par défaut (sous forme de table) pour céer une interface sous forme de cartes bootstrap.
+- On utilise pas le système du card-deck de bootstrap car il n'est pas encore responsive.
 ### Création d'une barre de navigation et d'une sidebar
  Dans des fichiers à part et avec un système d'inclusion dans un block (block inclus dans la base)
+#### filtrer les candidatures par étape :
+- On créé dans le controlleur une nouvelle route avec une fonction permettant de récupérer les catégories par étapes
+- à l'aide d'une boucle, on récupère ces étapes dans le menu de la sidebar ce qui permet, en cliquant sur le nom de l'étape, de filtrer les candidatures.
+#### Nombre de candidatures par étape :
+
 ### Vues CRUD
 On harmonise les différentes vues avec la mise en page de l'index :
 - nouvelle candidature

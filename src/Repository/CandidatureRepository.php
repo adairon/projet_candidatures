@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Candidature;
+use App\Entity\Etape;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -47,4 +48,14 @@ class CandidatureRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    //Fonction comptant le nombre total de candidatures dans la base (à appeler dans le controlleur):
+    public function countCandidatures()
+    {
+        $qb = $this->createQueryBuilder('e');
+        $qb ->select($qb->expr()->count('e'));
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
+    
+
 }
