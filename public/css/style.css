@@ -25,6 +25,12 @@ form{
 }
 
 
+.btn{
+    text-decoration: none;
+    color:white;
+    margin: 10px;
+}
+
 .btn a{
     text-decoration: none;
     color:white;
@@ -66,6 +72,7 @@ header{
     height: 100vh;
     width: 200px; 
     margin-top: 56px; /*on décalle vers le bas de la hauteur de la navbar*/
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -80,6 +87,10 @@ header{
     box-shadow: 0px 5px 5px black;
     color: white;
 } */
+
+
+
+
 
 /*  ===================== [ Landing page : liste des candidatures] ============================ */
 .block-body{

@@ -50,9 +50,12 @@ Penser à modifier la route pour la page d'accueil :
 ```@Route("/candidature")```devient : ```@Route("/")```
 
 ## personnalisation de l'interface
+### Header
+On choisit de dupliquer le header sur chaque page du Crud afin de pouvoir le personnaliser : le titre de chaque page est maintenant dans le header.
 ### Vue index :
 On laisse en commentaire la vue par défaut (sous forme de table) pour céer une interface sous forme de cartes bootstrap.
 - On utilise pas le système du card-deck de bootstrap car il n'est pas encore responsive.
+- changement de couleur de la carte (bordures et fond du header de la carte) en fonction de l'étape de la candidature : avec un sysème de conditions (if, elseif, else)
 ### Création d'une barre de navigation et d'une sidebar
  Dans des fichiers à part et avec un système d'inclusion dans un block (block inclus dans la base)
 #### filtrer les candidatures par étape :
@@ -68,7 +71,3 @@ On harmonise les différentes vues avec la mise en page de l'index :
 
 ### Gestion de la date de la candidature
 Selon si nous crééons une candidature ou si nous éditons, la date du jour concernera la date de création pu celle de mise à jour.
-
-## Design :
-### Header
-On choisit de dupliquer le header sur chaque page du Crud afin de pouvoir le personnaliser : le titre de chaque page est maintenant dans le header.
