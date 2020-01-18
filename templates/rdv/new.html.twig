@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent ()}} - nouveau rdv{% endblock %}
+
+{% block body %}
+
+<header>
+    <div class="header-text">
+        <h1>Nouveau Rendez-vous</h1>
+    </div>
+</header>
+
+<div class="block-body">
+    <div class="container new-container">
+        <div class="col-9 justify-content-center m-auto">
+            {{ include('rdv/_form.html.twig') }}
+            <button type="button" class="btn btn-secondary">
+                <a href="{{ path('candidature_index') }}">Retour à la liste</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

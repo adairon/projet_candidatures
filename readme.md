@@ -49,6 +49,14 @@ Dans notre cas, le controller et la vue ont été créés automatiquement.
 Penser à modifier la route pour la page d'accueil :   
 ```@Route("/candidature")```devient : ```@Route("/")```
 
+## Les RDV
+### Controller et formulaire :
+On utilise 2 commandes :  
+- pour créer le controlleur : 
+```bin/console make:controller```
+- pour le formualire des rdv :  
+```bin/console make:form```
+
 ## personnalisation de l'interface
 ### Header
 On choisit de dupliquer le header sur chaque page du Crud afin de pouvoir le personnaliser : le titre de chaque page est maintenant dans le header.
@@ -58,6 +66,11 @@ On laisse en commentaire la vue par défaut (sous forme de table) pour céer une
 - changement de couleur de la carte (bordures et fond du header de la carte) en fonction de l'étape de la candidature : avec un sysème de conditions (if, elseif, else)
 ### Création d'une barre de navigation et d'une sidebar
  Dans des fichiers à part et avec un système d'inclusion dans un block (block inclus dans la base)
+ - Sur la vue index : on a un bouton pour filtrer les candidatures
+ - Sur les autres pages du crud, ce bouton est remplacé par un lien vers l'accueil.
+    - On a besoin dans la sidebar d'une condition pour afficher le lien en fonction de la page,  
+    on récupère donc la route prise dans le controlleur et on la passe à la vue dans les retours des fonctions avec :  
+    ```'route'=>$request->attributes->get('_route')```
 #### filtrer les candidatures par étape :
 - On créé dans le controlleur une nouvelle route avec une fonction permettant de récupérer les catégories par étapes
 - à l'aide d'une boucle, on récupère ces étapes dans le menu de la sidebar ce qui permet, en cliquant sur le nom de l'étape, de filtrer les candidatures.

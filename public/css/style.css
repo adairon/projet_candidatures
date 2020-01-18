@@ -36,6 +36,10 @@ form{
     color:white;
 }
 
+.btn-light a{
+    color:black;
+}
+
 /* ========================================= [ HEADER ] ====================================== */
 header{
     height: 250px;

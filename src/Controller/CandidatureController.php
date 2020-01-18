@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Candidature;
+use App\Entity\Etape;
 use App\Form\CandidatureType;
 use App\Repository\CandidatureRepository;
 use App\Repository\EtapeRepository;
@@ -36,8 +37,8 @@ class CandidatureController extends AbstractController
             // dump($this->menu_etapes),
             'menu_etapes' => $this->menu_etapes,
             'nbCandidatures'=>$candidatureRepository->countCandidatures(),
-            dump($request->attributes->get('_route')),
-            'route'=>$request->attributes->get('_route')
+            // dump($request->attributes->get('_route')),
+            'route'=>$request->attributes->get('_route'),
             // 'candParEtape' => $this->candParEtape
         ]);
     }
@@ -121,16 +122,16 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/candidatures/{id}", name="candidature_etape")
      */
-    public function candidatureByEtape($id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
+    public function candidatureByEtape(Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
         $etape = $repo->find($id);
         $candidatures = $etape->getCandidatures();
         $cand = $etape->getCandidatures('id');
         return $this->render('candidature/index.html.twig', [
             'candidatures' => $candidatures,
-            // dump($this->menu_etapes),
             // dump($candidatureRepository->findBy(array('etape'=>$this->menu_etapes))),
             'menu_etapes' => $this->menu_etapes,
             'nbCandidatures'=>$candidatureRepository->countCandidatures(),
+            'route'=>$request->attributes->get('_route'),
             // 'candParEtape' => $this->candParEtape
 
         ]);
