@@ -124,13 +124,13 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/candidatures/{id}", name="candidature_etape")
      */
-    public function candidatureByEtape(Candidature $candidature, Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
+    public function candidatureByEtape(Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
         $etape = $repo->find($id);
         $candidatures = $etape->getCandidatures();
         $cand = $etape->getCandidatures('id');
         return $this->render('candidature/index.html.twig', [
-            'candidatures' => $candidatureRepository->findAll(),
-            // 'candidatures' => $candidatures,
+            'lesCandidatures' => $candidatureRepository->findAll(),
+            'candidatures' => $candidatures,
             // dump($this->menu_etapes),
             // dump($candidatureRepository->findBy(array('etape'=>$this->menu_etapes))),
             'menu_etapes' => $this->menu_etapes,
