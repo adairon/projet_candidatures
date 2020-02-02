@@ -121,7 +121,7 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/candidatures/{id}", name="candidature_etape")
      */
-    public function candidatureByEtape($id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
+    public function candidatureByEtape(Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
         $etape = $repo->find($id);
         $candidatures = $etape->getCandidatures();
         $cand = $etape->getCandidatures('id');
@@ -131,6 +131,7 @@ class CandidatureController extends AbstractController
             // dump($candidatureRepository->findBy(array('etape'=>$this->menu_etapes))),
             'menu_etapes' => $this->menu_etapes,
             'nbCandidatures'=>$candidatureRepository->countCandidatures(),
+            'route'=>$request->attributes->get('_route')
             // 'candParEtape' => $this->candParEtape
 
         ]);

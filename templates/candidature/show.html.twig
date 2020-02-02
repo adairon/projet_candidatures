@@ -4,29 +4,52 @@
 
 {% block body %}
 
-    <header>
-        <div class="header-text">
-            <h1>Votre candidature</h1>
-            <h3> au poste de {{ candidature.Poste }} chez {{ candidature.Entreprise }}</h3>
-        </div>
-    </header>
-
     <div class="block-body">
         <div class="container show-candidature">
         
 
-            <div class="card text-center col-9">
+            {# conditions pour modifier la couleur des cartes en fonction de l'étape #}
 
-                <div class="card-header">
-                    Étape : {{ candidature.etape.etape }} <br> <hr>
-                    envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }}
+            {% if candidature.etape.etape == 'Candidature refusée' %}
+                <div class="card border-danger text-center col-9">
+            
+            {% elseif candidature.etape.etape == 'Candidature retenue' %}
+                <div class="card border-success text-center col-9">
+            
+            {% elseif candidature.etape.etape == 'Attente réponse' %}
+                <div class="card border-warning text-center col-9">
+            
+            {% elseif candidature.etape.etape == 'Entretien à venir' %}
+                <div class="card border-primary text-center col-9">
+
+            {% else %}
+                 <div class="card text-center col-9">
+            {% endif %}
+
+                {% if candidature.etape.etape == 'Candidature refusée' %}
+                    <div class="card-header bg-danger">
+                
+                {% elseif candidature.etape.etape == 'Candidature retenue' %}
+                    <div class="card-header bg-success">
+                
+                {% elseif candidature.etape.etape == 'Attente réponse' %}
+                    <div class="card-header bg-warning">
+                
+                {% elseif candidature.etape.etape == 'Entretien à venir' %}
+                    <div class="card-header bg-primary">
+
+                {% else %}
+                    <div class="card-header">
+                {% endif %}
+                    {{ candidature.etape.etape }}                    
                 </div>
 
                 <div class="card-body">
 
-                    <h5 class="card-title">
-                        {{ candidature.Contrat }} - {{ candidature.Poste }} - {{ candidature.Entreprise }} ({{ candidature.Localisation }})
-                    </h5>
+                    <h3 class="card-title">
+                        {{ candidature.Poste }} ({{ candidature.Contrat }}) <br>
+                    </h3>
+                    <h4>{{ candidature.Entreprise }} - {{ candidature.Localisation }}</h4>
 
                     <p class="card-text">
                         Plateforme d'envoi : <br>
@@ -46,13 +69,14 @@
                 </div>
 
                 <div class="card-footer text-muted">
+                    envoyée le : {{ candidature.DateEnvoi ? candidature.DateEnvoi|date('d/m/Y') : '' }} <br>
                     Mise à jour le : {{ candidature.MiseAJour ? candidature.MiseAJour|date('d/m/Y') : '' }}
                 </div>
             </div>
 
-            <button type="button" class="btn btn-secondary">
+            {# <button type="button" class="btn btn-secondary">
                 <a href="{{ path('candidature_index') }}">Retour à la liste</a>
-            </button>
+            </button> #}
         </div>
     </div>
 

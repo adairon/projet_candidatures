@@ -4,7 +4,7 @@ body{
     background-size: cover;
     background-position: center center;
     background-repeat: repeat;*/
-    background-color: rgba(52, 58, 64, 0.3); 
+    /* background-color: rgba(52, 58, 64, 0.3);  */
     margin-top: 3rem; /*pour compenser la taille de la navbar*/
     
 }
