@@ -27,7 +27,7 @@
         </button>
         <hr>
         {# affichage de liens vers toutes les candidatures dans la sidebar #}
-        {% for candidature in lesCandidatures %}
+        {% for candidature in candidatures %}
             <a href="{{ path('candidature_show', {'id': candidature.id}) }}">
                 {% if candidature.etape.etape == 'Candidature refusée' %}
                     <div class="card border-danger text-danger align-items-center m-1">

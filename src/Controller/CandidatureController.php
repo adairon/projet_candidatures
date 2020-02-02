@@ -129,8 +129,8 @@ class CandidatureController extends AbstractController
         $candidatures = $etape->getCandidatures();
         $cand = $etape->getCandidatures('id');
         return $this->render('candidature/index.html.twig', [
-            'lesCandidatures' => $candidatureRepository->findAll(),
-            'candidatures' => $candidatures,
+            'candidatures' => $candidatureRepository->findAll(),
+            'lesCandidatures' => $candidatures,
             // dump($this->menu_etapes),
             // dump($candidatureRepository->findBy(array('etape'=>$this->menu_etapes))),
             'menu_etapes' => $this->menu_etapes,

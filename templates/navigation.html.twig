@@ -8,10 +8,45 @@
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
+   <div class="container">
+
+    <div class="topMenu row justify-content-center">
+
+      <button class="btn btn-primary">
+        <a class="dropdown-item" style="color:dodgerblue; font-weight:bold;" href="{{ path('candidature_index') }}">Toutes ({{ nbCandidatures }})</a>
+      </button>
+
+      {% for etapes in menu_etapes %}
+        {% for candidature in candidatures %}
+        {% if candidature.etape.etape == 'Candidature refusée' %}
+          <button class="btn btn-outline-danger text-danger">
+        
+        {% elseif candidature.etape.etape == 'Candidature retenue' %}
+            <button class="btn btn-outline-success text-success">
+        
+        {% elseif candidature.etape.etape == 'Attente réponse' %}
+            <button class="btn btn-outline-warning text-warning">
+        
+        {% elseif candidature.etape.etape == 'Entretien à venir' %}
+            <button class="btn btn-outline-primary text-primary">
+
+        {% else %}
+            <button class="btn text-secondary">
+        {% endif %}
+        <button class="btn btn-primary">
+          <a class="dropdown-item" href="{{ path('candidature_etape', {'id':etapes.id}) }}">{{ etapes.etape }}  </a>
+        </button>
+
+      {% endfor %}
+      {% endfor %}
+
+      </div>
+   </div>
+
     {# <div class="navbar-nav">
       <a class="nav-item nav-link" href="{{ path('candidature_index') }}">Accueil</a>
     </div> #}
-{# 
+    {# 
     <div class="nav-item dropdown">
 
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,9 +63,6 @@
     </div> #}
 
     {# <a href="{{ path('candidature_new') }}" class="btn btn-primary new-candidature">Nouvelle candidature</a> #}
-
-  
-    
 
   </div>
 <a href="" class="btn btn-secondary">Connexion</a>
