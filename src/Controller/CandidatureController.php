@@ -60,6 +60,7 @@ class CandidatureController extends AbstractController
         }
 
         return $this->render('candidature/new.html.twig', [
+            'candidatures' => $candidatureRepository->findAll(),
             'candidature' => $candidature,
             'form' => $form->createView(),
             'menu_etapes' => $this->menu_etapes,
@@ -74,6 +75,7 @@ class CandidatureController extends AbstractController
     public function show(Request $request, Candidature $candidature,CandidatureRepository $candidatureRepository): Response
     {
         return $this->render('candidature/show.html.twig', [
+            'candidatures' => $candidatureRepository->findAll(),
             'candidature' => $candidature,
             'menu_etapes' => $this->menu_etapes,
             'nbCandidatures'=>$candidatureRepository->countCandidatures(),
@@ -96,6 +98,7 @@ class CandidatureController extends AbstractController
         }
 
         return $this->render('candidature/edit.html.twig', [
+            'candidatures' => $candidatureRepository->findAll(),
             'candidature' => $candidature,
             'form' => $form->createView(),
             'menu_etapes' => $this->menu_etapes,
@@ -121,12 +124,13 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/candidatures/{id}", name="candidature_etape")
      */
-    public function candidatureByEtape(Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
+    public function candidatureByEtape(Candidature $candidature, Request $request, $id, EtapeRepository $repo, CandidatureRepository $candidatureRepository){
         $etape = $repo->find($id);
         $candidatures = $etape->getCandidatures();
         $cand = $etape->getCandidatures('id');
         return $this->render('candidature/index.html.twig', [
-            'candidatures' => $candidatures,
+            'candidatures' => $candidatureRepository->findAll(),
+            // 'candidatures' => $candidatures,
             // dump($this->menu_etapes),
             // dump($candidatureRepository->findBy(array('etape'=>$this->menu_etapes))),
             'menu_etapes' => $this->menu_etapes,

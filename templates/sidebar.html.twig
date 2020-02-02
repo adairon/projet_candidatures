@@ -23,8 +23,34 @@
         </div>
     {% else %}
         <button type="button" class="btn btn-light">
-            <a href="{{ path('candidature_index') }}">Retour à la liste</a>
+            <a href="{{ path('candidature_index') }}">Retour à l'accueil</a>
         </button>
+        <hr>
+        {# affichage de liens vers toutes les candidatures dans la sidebar #}
+        {% for candidature in candidatures %}
+            <a href="{{ path('candidature_show', {'id': candidature.id}) }}">
+                {% if candidature.etape.etape == 'Candidature refusée' %}
+                    <div class="card border-danger text-danger align-items-center m-1">
+                
+                {% elseif candidature.etape.etape == 'Candidature retenue' %}
+                    <div class="card border-success text-success align-items-center m-1">
+                
+                {% elseif candidature.etape.etape == 'Attente réponse' %}
+                    <div class="card border-warning text-warning align-items-center m-1">
+                
+                {% elseif candidature.etape.etape == 'Entretien à venir' %}
+                    <div class="card border-primary text-primary align-items-center m-1">
+
+                {% else %}
+                    <div class="card align-items-center text-secondary m-1">
+                {% endif %}
+                    {{ candidature.Poste }} <br>
+                    {{ candidature.Entreprise }}
+                </div>
+            </a>
+        {% endfor %}
+
     {% endif %}
+
 
 </div>
